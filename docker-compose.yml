@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  site:
+    image: node:lts-bullseye-slim
+    container_name: sultanimmubin
+    work_dir: /sultanimmubin
+    ports:
+      - 3000:3000
+    volumes:
+      - ".:/sultanimmubin"
+    command: >
+      sh -c
+      "
+      npm install
+      && npx next dev &
+      tail -f /dev/null
+      "
+      
